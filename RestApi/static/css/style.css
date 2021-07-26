@@ -1,0 +1,137 @@
+    body {
+		background-color: #fbffff;
+		margin: 0 auto;
+        font-family: Arial, sans-serif;
+        font-size: 15px;
+        color: #000000;
+        line-height: 1.6;
+	}
+
+/*container*/
+    .container {
+        width: 100%;
+        max-width: 1219px;
+        /*margin: 0 auto;*/
+        padding-right: 55px;
+        padding-left: 55px;
+    }
+
+   ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #9cd2d5;
+    }
+
+    li {
+        float: right;
+        border-right:1px solid #bbb;
+}
+
+    li:last-child {
+        border-right: none;
+}
+
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+}
+
+    li a:hover:not(.active) {
+        background-color: #111;
+}
+
+    .active {
+         background-color: #04AA6D;
+}
+
+    .post {
+        width: 800px; /* Ширина элемента в пикселах */
+        padding: 10px; /* Поля вокруг текста */
+        margin: auto; /* Выравниваем по центру */
+        background: #E0FFFF; /* Цвет фона */
+    }
+
+   h1 {
+        text-align: center;
+    }
+
+     hr {
+    border: none; /* Убираем границу */
+    background-color: #aaa8a8; /* Цвет линии */
+    color: red; /* Цвет линии для IE6-7 */
+    height: 2px; /* Толщина линии */
+   }
+
+    .header {
+        position: absolute;
+        width: 100%;
+        width: 1300px;
+        height: 60px;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background: #007765;
+     position: fixed;
+    }
+
+    .header li ::marker {
+        color: blue;
+        font-size: 1.2em;
+    }
+
+    .header_inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .header_logo {
+        margin: -23%;
+        left: 0.02%;
+        right: 0%;
+        top: 0%;
+        bottom: -0.09%;
+        text-align: center;
+    }
+
+    .header img {
+        position: relative;
+        left: -14px;
+        top: 8px;
+
+    }
+
+/*nav*/
+    .nav {
+        font-size: 20px;
+    }
+
+    .nav_link {
+        display: inline-block;
+        vertical-align: top;
+        margin: 0 10px;
+        color: #ffffff;
+        text-decoration: none;
+    }
+
+
+
+    .header nav a {
+        text-decoration: none;
+        color: #ffffff;
+    }
+
+    .header nav a::after {
+        content: "|";
+        margin-left: 27px;
+}
+
+    .head nav a:last-child::after {
+        content: "";
+}

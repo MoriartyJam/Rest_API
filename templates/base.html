@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    <head>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+       <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+       <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet"  href="{% static  'css/style.css'  %}">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+
+</head>
+
+<body>
+
+
+
+
+<div class="header_inner">
+            <li>
+                <a href="{% url 'post_list' %}">
+                <span class="header_logo">
+                <img src="/static/img/logo(1).png">
+                </span>
+                </a>
+            </li>
+            <ul>
+
+                    {% if user.is_authenticated %}
+                        <li><a  href="{% url 'login' %}"></span> Log out</a></li>
+                        <li><a>Welcome {{ user.username }}!</a>
+
+                    {% elif not user.is_authenticated %}
+                        <li><a  href="{% url 'login'  %}"></span> Log In</a></li>
+                        <li><a>You are not logged in.</a></li>
+                    {% endif %}
+            </ul>
+
+        </nav>
+    </div>
+</header>
+
+
+<!--<div id="yak3">-->
+<!--<div class="intro">-->
+<!--    <div class="container">-->
+<!--        <div class="intro_inner">-->
+<!--            <h1 class="intro_title">PiperNer is Here</h1>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--</div></header>-->
+
+
+{% block content %}
+{% endblock %}
+
+
+
+
+
+</body>
+
+</html>

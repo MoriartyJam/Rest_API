@@ -1,0 +1,73 @@
+
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+       <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+       <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+        <link rel="stylesheet" href="{% static  'css/style.css'  %}">
+    </head>
+
+<body>
+{% block content %}
+<div class="container">
+    <div class="row mt-5">
+        <div class="button_back">
+            <a href="{% url 'post_list' %}" class="btn btn-light">Back To Feed</a>
+        </div>
+    </div>
+        <h1>{{ post.title }}</h1>
+        <p>{{ post.content }}</p>
+        <p>{{ pub_date }}</p>
+
+
+
+    <li><form method="POST" action="{% url 'post_like' post.pk %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="next" value="{{ request.path }}">
+                    <button style="background-color: transparent; border: none; box-shadow: none;" type="submit">
+                        <i class="fa fa-thumbs-o-up"> <span>{{ post.likes.all.count }}</span></i>
+                    </button>
+                </form></li>
+
+                <li><form method="POST" action="{% url 'post_dislike' post.pk %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="next" value="{{ request.path }}">
+                    <button style="background-color: transparent; border: none; box-shadow: none;" type="submit">
+                        <p><i class="fa fa-thumbs-o-down"> <span>{{ post.dislikes.all.count }}</span></i></p>
+                    </button>
+                </form></li>
+
+
+        </div>
+
+<div class="button_edit">
+            <form method="POST">
+                {% csrf_token %}
+                {{ form | crispy }}
+                <div class="d-grid gap-2">
+                    {% if request.author == post.author %}
+                    <a class="btn btn-light" href="{% url 'post_edit' post.pk %}">Edit post</a>
+                {% endif %}
+                </div>
+            </form>
+        </div>
+</div>
+        </div>
+</div>
+
+
+
+<div class="button_delete">
+    <a href="{% url 'post_delete' pk=post.id  %}">Delete</a>
+</div>
+
+{% endblock %}
+</body>
+
+
